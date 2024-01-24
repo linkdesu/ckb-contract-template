@@ -1,0 +1,37 @@
+[workspace]
+package.authors = ["Link <link@d.id>"]
+package.edition = "2021"
+package.license = "MIT"
+resolver = "2"
+members = [
+    # Common libs
+    "libs/common",
+    # Contracts
+    "contracts/always-success",
+    # Only for unit tests
+    "tests",
+    "contracts/playground",
+]
+
+[workspace.dependencies]
+# workspace crates
+common = { path = "libs/common", default-features = false }
+# ckb crates
+ckb-std = "=0.15.0"
+ckb-types = { version = "=0.113.0" }
+molecule = { version = "0.7", default-features = false }
+# third party crates
+blake2b-rs = { version = "0.2" }
+blake2b-ref = { version = "0.3" }
+hex = { version = "0.4.2", default-features = false }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0" }
+dotenvy = { version = "0.15" }
+thiserror = { version = "1.0" }
+
+[profile.release]
+overflow-checks = true
+opt-level = 2
+lto = true
+codegen-units = 1
+panic = 'abort'

@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor & IDE
+.idea/
+.vscode/
+.history/
+build/
+target
+target_*
+!.gitkeep
+
+# Other
+*tmp
+.env

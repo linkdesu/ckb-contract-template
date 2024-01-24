@@ -1,0 +1,11 @@
+[package]
+name = "playground"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+# project libs
+common = { workspace = true, features = ["no_std"] }
+# third party
+ckb-std = { workspace = true }
+hex = { workspace = true }

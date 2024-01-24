@@ -1,0 +1,25 @@
+[package]
+name = "common"
+version = "1.0.0"
+edition = "2021"
+
+[features]
+default = [ "std" ]
+std = [
+    "ckb-types",
+    "blake2b-rs"
+]
+no_std = [
+    "ckb-std",
+    "blake2b-ref",
+]
+
+[dependencies]
+ckb-std = { workspace = true, optional = true }
+ckb-types = { workspace = true, optional = true }
+blake2b-rs = { workspace = true, optional = true }
+blake2b-ref = { workspace = true, optional = true }
+molecule = { workspace = true }
+
+[build-dependencies]
+dotenvy = { workspace = true }
